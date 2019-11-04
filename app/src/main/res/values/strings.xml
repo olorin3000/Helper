@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Помічник</string>
+
+    <string-array name="tab_titles">
+        <item>Вантажники</item>
+        <item>Перевізники</item>
+        <item>Будівельники</item>
+    </string-array>
+
+</resources>
