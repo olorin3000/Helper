@@ -6,15 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import org.koin.android.ext.android.inject
 
 
 class DefaultFragment : Fragment() {
 
     companion object {
         fun newInstance() = DefaultFragment()
+
+        const val METHOD = "porter"
     }
 
-    private lateinit var viewModel: DefaultViewModel
+    private val viewModel: DefaultViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +29,10 @@ class DefaultFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(DefaultViewModel::class.java)
-        // TODO: Use the ViewModel
+
+        viewModel.data.observe(viewLifecycleOwner, Observer {  })
+        viewModel.getServerData(METHOD)
     }
+
 
 }
