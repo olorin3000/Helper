@@ -15,7 +15,7 @@
 
         <variable
             name="listener"
-            type="ua.olorin.helper.RecyclerViewAdapter.RecyclerViewListener" />
+            type="ua.olorin.helper.adapter.RecyclerViewAdapter.RecyclerViewListener" />
     </data>
 
     <androidx.cardview.widget.CardView

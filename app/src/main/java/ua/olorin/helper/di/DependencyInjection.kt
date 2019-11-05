@@ -6,7 +6,7 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ua.olorin.helper.DefaultViewModel
+import ua.olorin.helper.viewmodel.DefaultViewModel
 import ua.olorin.helper.network.WebService
 import ua.olorin.helper.repository.Repository
 import ua.olorin.helper.repository.RepositoryImpl

@@ -1,4 +1,4 @@
-package ua.olorin.helper
+package ua.olorin.helper.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import ua.olorin.helper.R
+import ua.olorin.helper.adapter.ViewPagerFragmentAdapter
 
 class MainActivity : AppCompatActivity() {
 

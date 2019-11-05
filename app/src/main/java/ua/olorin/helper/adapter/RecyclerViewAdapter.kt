@@ -1,9 +1,10 @@
-package ua.olorin.helper
+package ua.olorin.helper.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import ua.olorin.helper.R
 import ua.olorin.helper.data.Data
 import ua.olorin.helper.databinding.ContentRecyclerViewBinding
 
@@ -27,7 +28,8 @@ class RecyclerViewAdapter(private val dataList: List<Data>)
 
     }
 
-    private val listener = object : RecyclerViewListener{
+    private val listener = object :
+        RecyclerViewListener {
         override fun onItemClick(data: Data, isExpanded: Boolean) {
             val position = dataList.indexOf(data)
             expandedItems[position] = !isExpanded

@@ -1,18 +1,19 @@
-package ua.olorin.helper
+package ua.olorin.helper.ui
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.BundleCompat
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.default_fragment.*
 import org.koin.android.ext.android.inject
-import ua.olorin.helper.data.Data
+import ua.olorin.helper.R
+import ua.olorin.helper.adapter.RecyclerViewAdapter
 import ua.olorin.helper.databinding.DefaultFragmentBinding
+import ua.olorin.helper.utils.MarginItemDecoration
+import ua.olorin.helper.viewmodel.DefaultViewModel
 
 
 class DefaultFragment : Fragment() {
@@ -56,7 +57,11 @@ class DefaultFragment : Fragment() {
 
         viewModel.data.observe(viewLifecycleOwner, Observer { dataList ->
             val adapter = RecyclerViewAdapter(dataList)
-            viewDataBinding.recyclerView.addItemDecoration(MarginItemDecoration(context = activity!!))
+            viewDataBinding.recyclerView.addItemDecoration(
+                MarginItemDecoration(
+                    context = activity!!
+                )
+            )
             viewDataBinding.recyclerView.adapter = adapter
         })
 

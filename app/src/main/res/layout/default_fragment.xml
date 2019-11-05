@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DefaultFragment">
+    tools:context=".ui.DefaultFragment">
 
     <data>
         <variable
             name="viewModel"
-            type="ua.olorin.helper.DefaultViewModel" />
+            type="ua.olorin.helper.viewmodel.DefaultViewModel" />
     </data>
 
     <FrameLayout

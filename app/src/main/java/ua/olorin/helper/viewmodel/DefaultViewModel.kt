@@ -1,4 +1,4 @@
-package ua.olorin.helper
+package ua.olorin.helper.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
