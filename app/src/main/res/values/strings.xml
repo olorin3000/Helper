@@ -29,4 +29,6 @@
         <item>Нд</item>
     </string-array>
 
+    <string name="text_service_price">%d грн</string>
+
 </resources>

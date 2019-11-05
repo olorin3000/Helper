@@ -1,12 +1,19 @@
 package ua.olorin.helper
 
+import android.content.Context
+import android.util.DisplayMetrics
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.view.marginTop
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.content_recycler_view.view.*
+import ua.olorin.helper.data.Service
 
 object BindingAdapter {
 
@@ -36,5 +43,59 @@ object BindingAdapter {
         }
 
         text = result
+    }
+
+    @JvmStatic
+    @BindingAdapter("services")
+    fun LinearLayout.services(services: List<Service>){
+        removeAllViews()
+
+        for (value in services){
+            val horizontalLayout = LinearLayout(context).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.MATCH_PARENT).apply {
+                    if (services.size == services.indexOf(value) + 1){
+                        setMargins(0, convertDpToPixel(context, 16f), 0, 0)
+                    }
+                }
+                orientation = LinearLayout.HORIZONTAL
+            }
+
+            val label = TextView(context).apply {
+                val params = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT)
+                params.weight = 1f
+
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT).apply {
+                    weight = 1f
+                }
+                setTextColor(ContextCompat.getColor(context, R.color.colorPrimaryText))
+                text = value.label
+            }
+
+            horizontalLayout.addView(label)
+
+            val number = TextView(context).apply {
+
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT)
+
+                setTextColor(ContextCompat.getColor(context, R.color.colorPrimaryText))
+                text = resources.getString(R.string.text_service_price, value.number)
+            }
+
+            horizontalLayout.addView(number)
+
+            addView(horizontalLayout)
+        }
+    }
+
+    private fun convertDpToPixel(context: Context, dp: Float): Int{
+        return (dp * (context.resources.displayMetrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT)).toInt()
     }
 }
