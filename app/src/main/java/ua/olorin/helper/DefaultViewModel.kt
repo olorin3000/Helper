@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import ua.olorin.helper.data.Data
 import ua.olorin.helper.data.Result
-import ua.olorin.helper.network.ResponseWrapper
 import ua.olorin.helper.repository.Repository
 
 class DefaultViewModel(private val repository: Repository) : ViewModel() {

@@ -6,4 +6,5 @@
     <color name="colorPrimaryText">#000000</color>
     <color name="colorSecondaryText">#666666</color>
     <color name="colorWindow">#efeff7</color>
+    <color name="colorDivider">#acb4b6</color>
 </resources>

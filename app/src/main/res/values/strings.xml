@@ -1,10 +1,32 @@
 <resources>
     <string name="app_name">Помічник</string>
+    <string name="text_empty_list">Інформація відсутня</string>
 
     <string-array name="tab_titles">
         <item>Вантажники</item>
         <item>Перевізники</item>
         <item>Будівельники</item>
+    </string-array>
+
+    <string name="text_try_again">Ще раз?</string>
+    <string name="text_punctuality">Пунктуальність</string>
+    <string name="text_accuracy">Акуратність</string>
+    <string name="text_completed_orders">Виконано завдань</string>
+    <string name="text_work_schedule">Графік роботи</string>
+    <string name="text_work_days">Робочі дні</string>
+    <string name="button_order">Замовити</string>
+
+    <string name="text_completed_tasks">%d з %d</string>
+    <string name="text_work_schedule_range">%s - %s</string>
+
+    <string-array name="days_of_week">
+        <item>Пн</item>
+        <item>Вт</item>
+        <item>Ср</item>
+        <item>Чт</item>
+        <item>Пт</item>
+        <item>Сб</item>
+        <item>Нд</item>
     </string-array>
 
 </resources>

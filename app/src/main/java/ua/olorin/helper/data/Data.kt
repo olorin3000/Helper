@@ -4,10 +4,10 @@ data class Data (
     val avatar: String,
     val name: String,
     val uid: String,
-    val ratingSpeed: Int,
+    val ratingSpeed: Float,
     val numberOfOrders: Int,
     val numberOfOrdersComplete: Int,
-    val ratingPunctuality: Int,
+    val ratingPunctuality: Float,
     val workSchedule: WorkSchedule,
     val services: List<Service>
 )

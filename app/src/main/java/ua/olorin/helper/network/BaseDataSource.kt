@@ -1,5 +1,6 @@
 package ua.olorin.helper.network
 
+import android.util.Log
 import retrofit2.Response
 import ua.olorin.helper.data.Result
 
@@ -19,6 +20,7 @@ abstract class BaseDataSource {
     }
 
     private fun <T> error(message: String): Result<T> {
-        return Result.error("Network call has failed for a following reason: $message")
+        Log.e("DataSource", "Message: $message")
+        return Result.error(message)
     }
 }

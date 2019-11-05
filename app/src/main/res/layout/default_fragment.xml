@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".DefaultFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+    <data>
+        <variable
+            name="viewModel"
+            type="ua.olorin.helper.DefaultViewModel" />
+    </data>
 
-</FrameLayout>
+    <FrameLayout
+        android:id="@+id/defaultFragmentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:isVisible="@{!viewModel.loading &amp;&amp; !viewModel.empty}"
+            tools:listitem="@layout/content_recycler_view" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:isVisible="@{viewModel.loading}"
+            tools:visibility="gone" />
+
+        <include
+            layout="@layout/content_empty"
+            android:visibility="gone"
+            app:status="@{viewModel.empty}" />
+
+    </FrameLayout>
+
+</layout>

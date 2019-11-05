@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="ua.olorin.helper.data.Data" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgAvatar"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:url="@{data.avatar}"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tvFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{data.name}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/imgAvatar"
+                app:layout_constraintTop_toTopOf="@+id/imgAvatar" />
+
+            <TextView
+                android:id="@+id/tvPunctualityLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_punctuality"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tvPunctualityNumberStars"
+                app:layout_constraintStart_toEndOf="@+id/imgAvatar"
+                app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
+
+            <TextView
+                android:id="@+id/tvAccuracyLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_accuracy"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/tvPunctualityLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
+
+            <RatingBar
+                android:id="@+id/ratingBarPunctuality"
+                style="@android:style/Widget.Material.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:numStars="5"
+                android:rating="@{data.ratingPunctuality}"
+                app:layout_constraintStart_toEndOf="@+id/imgAvatar"
+                app:layout_constraintTop_toBottomOf="@+id/tvPunctualityLabel" />
+
+            <RatingBar
+                android:id="@+id/ratingBarAccuracy"
+                style="@android:style/Widget.Material.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:numStars="5"
+                android:rating="@{data.ratingSpeed}"
+                app:layout_constraintStart_toEndOf="@+id/tvPunctualityNumberStars"
+                app:layout_constraintTop_toBottomOf="@+id/tvAccuracyLabel" />
+
+            <TextView
+                android:id="@+id/tvPunctualityNumberStars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{String.valueOf(data.ratingPunctuality)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ratingBarPunctuality"
+                app:layout_constraintStart_toEndOf="@+id/ratingBarPunctuality"
+                app:layout_constraintTop_toTopOf="@+id/ratingBarPunctuality" />
+
+            <TextView
+                android:id="@+id/tvAccuracyNumberStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{String.valueOf(data.ratingSpeed)}"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ratingBarAccuracy"
+                app:layout_constraintStart_toEndOf="@+id/ratingBarAccuracy"
+                app:layout_constraintTop_toTopOf="@+id/ratingBarAccuracy" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="0.50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/colorDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/ratingBarPunctuality"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarPunctuality" />
+
+            <ImageView
+                android:id="@+id/ic_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_expand_less_grey_24dp" />
+
+            <TextView
+                android:id="@+id/tvCompletedOrdersLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_orders"
+                android:drawablePadding="5dp"
+                android:text="@string/text_completed_orders"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/view"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <TextView
+                android:id="@+id/tvCompletedOrdersValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{String.format(@string/text_completed_tasks, data.numberOfOrdersComplete, data.numberOfOrders)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCompletedOrdersLabel"
+                app:layout_constraintStart_toEndOf="@+id/tvCompletedOrdersLabel"
+                app:layout_constraintTop_toTopOf="@+id/tvCompletedOrdersLabel" />
+
+            <TextView
+                android:id="@+id/tvWorkScheduleLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_time_schedule"
+                android:drawablePadding="5dp"
+                android:text="@string/text_work_schedule"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tvCompletedOrdersLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tvCompletedOrdersLabel" />
+
+            <TextView
+                android:id="@+id/tvWorkScheduleValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{String.format(@string/text_work_schedule_range, data.workSchedule.startTime, data.workSchedule.endTime)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tvWorkScheduleLabel"
+                app:layout_constraintStart_toEndOf="@+id/tvWorkScheduleLabel"
+                app:layout_constraintTop_toTopOf="@+id/tvWorkScheduleLabel" />
+
+            <TextView
+                android:id="@+id/tvWorkDaysLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_work_days"
+                android:drawablePadding="5dp"
+                android:text="@string/text_work_days"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tvWorkScheduleLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tvWorkScheduleLabel" />
+
+            <TextView
+                android:id="@+id/tvWorkDaysValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:workDays="@{data.workSchedule.dayOfWeek}"
+                app:layout_constraintBottom_toBottomOf="@+id/tvWorkDaysLabel"
+                app:layout_constraintStart_toEndOf="@+id/tvWorkDaysLabel"
+                app:layout_constraintTop_toTopOf="@+id/tvWorkDaysLabel" />
+
+            <TextView
+                android:id="@+id/tvLoremIpsum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvWorkDaysLabel" />
+
+            <Button
+                android:id="@+id/btnOrder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/colorAccent"
+                android:text="@string/button_order"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLoremIpsum" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</layout>
