@@ -66,9 +66,9 @@
 
             <TextView
                 android:id="@+id/tvAccuracyLabel"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/text_accuracy"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -94,18 +94,17 @@
                 style="@android:style/Widget.Material.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
                 android:numStars="5"
                 android:rating="@{data.ratingSpeed}"
-                app:layout_constraintStart_toEndOf="@+id/tvPunctualityNumberStars"
+                app:layout_constraintStart_toStartOf="@+id/tvAccuracyLabel"
                 app:layout_constraintTop_toBottomOf="@+id/tvAccuracyLabel" />
 
             <TextView
                 android:id="@+id/tvPunctualityNumberStars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="4dp"
                 android:text="@{String.valueOf(data.ratingPunctuality)}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textSize="12sp"
@@ -117,7 +116,7 @@
                 android:id="@+id/tvAccuracyNumberStar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="4dp"
                 android:text="@{String.valueOf(data.ratingSpeed)}"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/ratingBarAccuracy"
@@ -236,27 +235,7 @@
                 app:services="@{data.services}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvWorkDaysLabel" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="TextView" />
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TextView" />
-                </LinearLayout>
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/tvWorkDaysLabel" />
 
             <Button
                 android:id="@+id/btnOrder"
